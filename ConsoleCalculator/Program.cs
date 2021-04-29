@@ -7,6 +7,9 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
+
+            AppDomain CurrentAppDomain = AppDomain.CurrentDomain;
+            CurrentAppDomain.UnhandledException += new UnhandledExceptionEventHandler(HandelException);
             WriteLine("Enter first number");
             int number1 = int.Parse(ReadLine());
 
@@ -20,7 +23,7 @@ namespace ConsoleCalculator
             var calculator = new Calculator();
             try
             {
-                int result = calculator.Calculate(number1, number2, null);
+                int result = calculator.Calculate(number1, number2, operation);
                 DisplayResult(result);
             }
             catch (ArgumentNullException ex) when (ex.ParamName=="operation")
@@ -48,6 +51,11 @@ namespace ConsoleCalculator
             
             WriteLine("\nPress enter to exit.");
             ReadLine();
+        }
+
+        private static void HandelException(object sender, UnhandledExceptionEventArgs e)
+        {
+            WriteLine($"Sorry there was a problem and we need to close . Details : {e.ExceptionObject}");
         }
 
         private static void DisplayResult(int result)
