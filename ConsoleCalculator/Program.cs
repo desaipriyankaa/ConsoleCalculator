@@ -25,7 +25,11 @@ namespace ConsoleCalculator
             }
             catch (ArgumentNullException ex) when (ex.ParamName=="operation")
             {
-                WriteLine($"operation can not be null {ex}");
+                WriteLine($"operation was not provided {ex}");
+            }
+            catch (ArgumentNullException ex)
+            {
+                WriteLine($"An argument was null {ex}");
             }
             catch (ArgumentOutOfRangeException ex)
             {
