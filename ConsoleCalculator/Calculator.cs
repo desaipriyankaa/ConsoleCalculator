@@ -24,6 +24,7 @@ namespace ConsoleCalculator
             else
             {
                 throw new CalculationOperationNotSupportedException(operation);
+                
             }
         }
         
