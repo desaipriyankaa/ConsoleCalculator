@@ -20,13 +20,21 @@ namespace ConsoleCalculator
             var calculator = new Calculator();
             try
             {
-                int result = calculator.Calculate(number1, number2, null);
+                int result = calculator.Calculate(number1, number2, operation);
                 DisplayResult(result);
             }
-            catch(Exception ex)
+            catch (ArgumentNullException ex)
+            {
+                WriteLine($"operation can not be null {ex}");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                WriteLine($"Can not find enetered operation.. please enter correct operation {ex}");
+            }
+            catch (Exception ex)
             {
                 WriteLine($"Sorry something went wrong...{ex}");
-                
+
             }
             
             
