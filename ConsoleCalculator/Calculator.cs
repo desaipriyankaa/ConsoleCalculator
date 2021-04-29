@@ -15,7 +15,19 @@ namespace ConsoleCalculator
 
             if (operation == "/")
             {
-                return Divide(number1, number2);
+                try
+                {
+                    return Divide(number1, number2);
+                }
+                catch(DivideByZeroException ex)
+                {
+                    //Log.Error(ex);
+                                      
+                    throw ex;
+
+
+                }
+                
             }
             else
             {
