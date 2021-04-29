@@ -21,11 +21,10 @@ namespace ConsoleCalculator
                 }
                 catch(DivideByZeroException ex)
                 {
-                    //Log.Error(ex);
-                                      
-                    throw ex;
+                    //Log.Error(ex);                  
+                    //throw ex;
 
-
+                    throw new ArithmeticException("An error occured during calculation.", ex);
                 }
                 
             }
