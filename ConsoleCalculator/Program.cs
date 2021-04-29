@@ -26,22 +26,11 @@ namespace ConsoleCalculator
                 int result = calculator.Calculate(number1, number2, operation);
                 DisplayResult(result);
             }
-            catch (ArgumentNullException ex) when (ex.ParamName=="operation")
+           
+            catch (CalculationException ex)
             {
-                WriteLine($"operation was not provided {ex}");
-            }
-            catch (ArgumentNullException ex)
-            {
-                WriteLine($"An argument was null {ex}");
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                WriteLine($"Can not find enetered operation.. please enter correct operation {ex}");
-            }
-            catch (Exception ex)
-            {
-                WriteLine($"Sorry something went wrong...{ex}");
-
+                //Log.Error;
+                WriteLine(ex);
             }
             finally
             {
