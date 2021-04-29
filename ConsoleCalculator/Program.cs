@@ -20,10 +20,10 @@ namespace ConsoleCalculator
             var calculator = new Calculator();
             try
             {
-                int result = calculator.Calculate(number1, number2, operation);
+                int result = calculator.Calculate(number1, number2, null);
                 DisplayResult(result);
             }
-            catch (ArgumentNullException ex)
+            catch (ArgumentNullException ex) when (ex.ParamName=="operation")
             {
                 WriteLine($"operation can not be null {ex}");
             }
